@@ -1,19 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <title>WhatsApp Web Automation</title>
 </head>
 <body>
-    <h1>tamil matrimony</h1>
-    <h2><b>shambu krishna</b></h2>
-    <img src="shambu.jpeg" alt="">
-    <p>i am kanni paiyan interested can call me.</p>
-    <p>my no is 9344611395.anyone can call me at any time.</p>
+    <h1>Send Message via WhatsApp Web</h1>
+    <form id="whatsappForm">
+        <label for="contactName">Contact Name:</label>
+        <input type="text" id="contactName" name="contactName"><br><br>
+        <label for="message">Message:</label>
+        <input type="text" id="message" name="message"><br><br>
+        <input type="button" value="Send" onclick="sendMessage()">
+    </form>
+    <p id="status"></p>
 
-    <p>his name is shambu.nickname is tobi.schl epdiyoo pass ana clg fulla arear.i am bachler.</p>
-    <a href="https://www.instagram.com/x_tobi____?igsh=MW9sNnp0eTZwczJhag==">my insta profile</a>
+    <script>
+        function sendMessage() {
+            var contactName = document.getElementById("contactName").value;
+            var message = document.getElementById("message").value;
+
+            // Open WhatsApp Web
+            var whatsappUrl = "https://web.whatsapp.com/send?phone=" + encodeURIComponent(contactName) + "&text=" + encodeURIComponent(message);
+            window.open(whatsappUrl, '_blank');
+
+            document.getElementById("status").innerText = "Message sent to " + contactName;
+        }
+    </script>
 </body>
 </html>
